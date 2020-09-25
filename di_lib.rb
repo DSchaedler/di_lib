@@ -25,6 +25,8 @@ def di_init args
 
   args.state.di_checkboxes = Hash.new
 
+  args.state.di_textstreans = Hash.new
+
   args.state.di_colors ||= ["black", "white", "red", "lime", "blue", "yellow", "cyan", "magenta", "silver", "grey", "maroon", "olive", "green", "purple", "teal", "navy"]
 end
 
@@ -82,13 +84,10 @@ def di_checkbox(args, checkbox_symobl:, posx:, posy:, width: 20, height: 20, bor
   args.outputs.primitives << args.state.di_checkboxes[checkbox_symobl].border
 
   if args.inputs.mouse.click
-    puts "click"
     click_location = [args.inputs.mouse.click.point.x, args.inputs.mouse.click.point.y]
 
     if (click_location) && (click_location.intersect_rect? args.state.di_checkboxes[checkbox_symobl])
-      puts checkbox[:state]
       checkbox[:state] = !checkbox[:state]
-      puts checkbox[:state]
       args.state.di_checkboxes[checkbox_symobl] = checkbox
     end
   end
@@ -97,6 +96,20 @@ end
 def di_checkbox_get(args, checkbox_symobl)
     checkbox = args.state.di_checkboxes[checkbox_symobl]
     return checkbox[:state]
+end
+
+def di_render_textstream(args, textstream_symbol:, posx:, posy:, width:, height:, border_color: "black", font_color: "black", border_alpha: 255, text_alpha: 255, line_spacing: 10 )
+
+  border_color = di_color_rgb(border_color)
+  font_color = di_color_rgb(font_color)
+
+  args.outputs.borders << [posx, posy, width, height, border_color[0], border_color[1], border_color[2], border_alpha]
+
+  args.state.di_textstreans[textstream_symbol].each { |string|
+    textsize = args.gtk.calcstringbox(string)
+    args.outputs.labels << [posx, posy + textsize[1] + line_spacing, string]
+    posy = posy + textsize[1]
+  }
 end
 
 def reset #Allows the state to be reset at any time by calling this function, also mineutely shortens the call in the console
