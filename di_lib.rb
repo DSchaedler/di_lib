@@ -98,7 +98,7 @@ def di_checkbox_get(args, checkbox_symobl)
     return checkbox[:state]
 end
 
-def di_render_textstream(args, textstream_symbol:, posx:, posy:, width:, height:, border_color: "black", font_color: "black", border_alpha: 255, text_alpha: 255, line_spacing: 10 )
+def di_render_textstream(args, textstream_symbol:, posx:, posy:, width:, height:, order:, border_color: "black", font_color: "black", border_alpha: 255, text_alpha: 255, line_spacing: 10 )
 
   border_color = di_color_rgb(border_color)
   font_color = di_color_rgb(font_color)
@@ -107,8 +107,17 @@ def di_render_textstream(args, textstream_symbol:, posx:, posy:, width:, height:
 
   args.state.di_textstreans[textstream_symbol].each { |string|
     textsize = args.gtk.calcstringbox(string)
-    args.outputs.labels << [posx, posy + textsize[1] + line_spacing, string]
-    posy = posy + textsize[1]
+    if order == "down"
+      args.outputs.labels << [posx + line_spacing, posy + height - line_spacing, string]
+      posy = posy - textsize[1]
+    elsif order == "up"
+      args.outputs.labels << [posx + line_spacing, posy + textsize[1] + line_spacing, string]
+      posy = posy + textsize[1]
+    else
+      #puts "[di_lib][Error:] Incorrect paramater passed for order, assuming down."
+      args.outputs.labels << [posx + line_spacing, posy + height - line_spacing, string]
+      posy = posy - textsize[1]
+    end
   }
 end
 
