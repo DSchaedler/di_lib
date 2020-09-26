@@ -48,7 +48,7 @@ def di_button_box_calculate(args, string:, posx:, posy:, padding: 10, text_size:
   return [posx, posy, string_box[0] + (padding * 2), string_box[1] + (padding * 2)]
 end
 
-def di_button_clicked(args, click_location, button_symbol) #returns true if click location intersects specified button_box
+def di_button_clicked(args, click_location:, button_symbol:) #returns true if click location intersects specified button_box
   #click_location - array, [x,y]
   if (click_location) && (click_location.intersect_rect? args.state.di_button_box[button_symbol])
     return true
