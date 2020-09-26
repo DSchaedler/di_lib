@@ -15,6 +15,9 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
     - [di_button](#di_button)
     - [di_button_calculate](#di_button_calculate)
     - [di_button_clicked](#di_button_clicked)
+  - [Checkboxes](#checkboxes)
+    - [di_checkbox](#di_checkbox)
+    - [di_checkbox_get](#di_checkbox_get)
 
 # ToDo
 - Document all existing functions
@@ -100,3 +103,34 @@ Arguments:
 | ```button_symbol:```  | Accepts a symbol provided to ```di_button``` |
 
 <b> Returns </b> ```true``` if ```click_location``` is inside the the border of the button. Otherwise <b> returns </b> ```false```
+
+## Checkboxes
+<a name='di_checkbox'/> ```di_checkbox``` - Specifies and renders a checkbox; updates the checkbox value if clicked.
+
+Arguments:
+| Required               | Description                                       |
+| ---------------------- | ------------------------------------------------- |
+| ```args```             | Enables api calls.                                |
+| ```checkbox_symbol:``` | Symbol identifying this checkbox. Must be unique. |
+| ```posx::```           | X position of the checkbox.                       |
+| ```posy::```           | Y position of the checkbox.                       |
+
+| Optional            | Description                                          | Default |
+| ------------------- | ---------------------------------------------------- | ------- |
+| ```width:```        | Checkbox width.                                      | 20      |
+| ```height:```       | Checkbox height.                                     | 20      |
+| ```border_color:``` | Border color. Accepts strings for ```di_color_rgb``` | "black" |
+| ```fill_color:```   | Fill color. Accepts strings for ```di_color_rgb```   | "black" |
+| ```border_alpha:``` | Border opacity, accepts integers between 0 to 255.   | 255     |
+| ```fill_alpha:```   | Fill opacity, accepts integers between 0 to 255.     | 255     |
+| ```state:```        | Check or Unchecked, accepts boolean values.          | false   |
+
+<a name='di_checkbox_get'/> ```di_checkbox_get``` - Returns the current state of the specified checkbox.
+
+Arguments:
+| Required              | Description                                    |
+| --------------------- | ---------------------------------------------- |
+| ```args```            | Enables api calls.                             |
+| ```checkbox_symbol``` | Accepts a symbol provided to ```di_checkbox``` |
+
+<b> Returns </b> ```true``` if ```state:``` is true for this checkbox. Otherwise <b> returns </b> ```false```
