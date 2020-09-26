@@ -3,6 +3,10 @@ Dee's Interface Library: a UI function library written in Ruby for DragonRuby Ga
 
 To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.rb"``` at the top of your file.
 
+# Contents
+- [di_lib](#di_lib)
+- [Contents](#contents)
+
 # ToDo
 - Document all existing functions
 - Readme Table of Contents
