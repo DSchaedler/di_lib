@@ -1,9 +1,11 @@
 # di_lib
-Dee's Interface Library: a UI function library written in Ruby for DragonRuby Game Toolkit 
+Dee's Interface Library: a UI function library written in Ruby for DragonRuby Game Toolkit.
 
 To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.rb"``` at the top of your file.
 
 # ToDo
+- Document all existing functions
+- Readme Table of Contents
 - Text processing with scroll
 
 # Functions
@@ -11,21 +13,23 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
 ### di_init
 Initializes state variables that contain query information about the library, as well as variables used by the library.
 
+Arguments:
 | Required             | Description                                     |
 | -------------------- | ----------------------------------------------- |
 | ```args```           | Enables api calls.                              |
 
-| Query Variables                   | Description                                                     |
-| --------------------------------- | --------------------------------------------------------------- |
-| ```args.state.di_button_box```    | Hash containing all created button hitboxes                     |
-| ```args.state.di_button_label```  | Hash containing all created button text labels                  |
-| ```args.state.di_checkboxes```    | Hash containing all created checkboxes                          |
-| ```args.state.di_textstreans```   | Hash containing all textstream arrays                           |
-| ```args.state.di_colors```        | Array of all colors accepted by the ```di_color_rgb``` function |
+| Query Variables                   | Description                                                      |
+| --------------------------------- | ---------------------------------------------------------------- |
+| ```args.state.di_button_box```    | Hash containing all created button hitboxes.                     |
+| ```args.state.di_button_label```  | Hash containing all created button text labels.                  |
+| ```args.state.di_checkboxes```    | Hash containing all created checkboxes.                          |
+| ```args.state.di_textstreans```   | Hash containing all textstream arrays.                           |
+| ```args.state.di_colors```        | Array of all colors accepted by the ```di_color_rgb``` function. |
 
 ## Colors
-```di_color_rgb``` - returns an array with the RGB values of the color provided. Valid colors are listed in ```args.state.di_colors```. These are the same as the common HTML color codes listed here: https://htmlcolorcodes.com/. Used by almost every other functions in the library.
+```di_color_rgb``` - returns an array with the RGB values of the color provided. Valid colors are listed in ```args.state.di_colors```. These are the same as the common HTML color codes listed here: https://htmlcolorcodes.com/. Used by almost every other function in the library.
 
+Arguments:
 | Required    | Descrpiption                       |
 | ----------- | ---------------------------------- |
 |```color:``` | String with the name of the color. |
@@ -37,6 +41,7 @@ Initializes state variables that contain query information about the library, as
 ## Buttons
 ```di_button``` - Specify and render a new button with a text label.
 
+Arguments
 | Required             | Description                                     |
 | -------------------- | ----------------------------------------------- |
 | ```args```           | Enables api calls.                              |
@@ -57,6 +62,7 @@ Initializes state variables that contain query information about the library, as
 
 ```di_button_box_calculate``` - Calculate the size of a button without rendering it.
 
+Arguments:
 | Required             | Description                                     |
 | -------------------- | ----------------------------------------------- |
 | ```args```           | Enables api calls.                              |
@@ -74,8 +80,9 @@ Initializes state variables that contain query information about the library, as
 
 ```di_button_clicked``` - Determine if the specified button has been clicked.
 
+Arguments:
 | Required              | Description                                  |
-| -----------------=--- | -------------------------------------------- |
+| --------------------- | -------------------------------------------- |
 | ```args```            | Enables api calls.                           |
 | ```click_location:``` | Accepts an array of ```[x, y]```             |
 | ```button_symbol:```  | Accepts a symbol provided to ```di_button``` |
