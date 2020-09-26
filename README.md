@@ -18,7 +18,6 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
 
 # ToDo
 - Document all existing functions
-- Readme Table of Contents
 - Text processing with scroll
 
 # Functions
