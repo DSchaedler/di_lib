@@ -6,6 +6,14 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
 # Contents
 - [di_lib](#di_lib)
 - [Contents](#contents)
+- [ToDo](#todo)
+- [Functions](#functions)
+- - [di_init](di_init)
+- - [Colors](#colors)
+- - - [di_color_rgb](#di_color_rgb)
+- - [Buttons](#buttons)
+- - - [di_button](#di_button)
+- - - [di_button_calculate](#di_button_calculate)
 
 # ToDo
 - Document all existing functions
@@ -31,7 +39,7 @@ Arguments:
 | ```args.state.di_colors```        | Array of all colors accepted by the ```di_color_rgb``` function. |
 
 ## Colors
-```di_color_rgb``` - returns an array with the RGB values of the color provided. Valid colors are listed in ```args.state.di_colors```. These are the same as the common HTML color codes listed here: https://htmlcolorcodes.com/. Used by almost every other function in the library.
+<a name='di_color_rgb'/> ```di_color_rgb``` - returns an array with the RGB values of the color provided. Valid colors are listed in ```args.state.di_colors```. These are the same as the common HTML color codes listed here: https://htmlcolorcodes.com/. Used by almost every other function in the library.
 
 Arguments:
 | Required    | Descrpiption                       |
@@ -43,7 +51,7 @@ Arguments:
 ```args.state.di_colors ||= ["black", "white", "red", "lime", "blue", "yellow", "cyan", "magenta", "silver", "grey", "maroon", "olive", "green", "purple", "teal", "navy"]```
 
 ## Buttons
-```di_button``` - Specify and render a new button with a text label.
+<a name='di_button'/> ```di_button``` - Specify and render a new button with a text label.
 
 Arguments
 | Required             | Description                                     |
@@ -64,7 +72,7 @@ Arguments
 | ```text_alpha:```      | Text opacity, accepts integers between 0 to 255.     | 255     |
 | ```font_file:```       | Font to render text with. [Accepts a string with the path to a font file](https://dragonruby-docs.readthedocs.io/en/latest/02-labels/#custom-font) | "font.tff" | 
 
-```di_button_box_calculate``` - Calculate the size of a button without rendering it.
+<a name='di_button_calculate'/> ```di_button_box_calculate``` - Calculate the size of a button without rendering it.
 
 Arguments:
 | Required             | Description                                     |
