@@ -8,12 +8,13 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
 - [Contents](#contents)
 - [ToDo](#todo)
 - [Functions](#functions)
-- - [di_init](di_init)
-- - [Colors](#colors)
-- - - [di_color_rgb](#di_color_rgb)
-- - [Buttons](#buttons)
-- - - [di_button](#di_button)
-- - - [di_button_calculate](#di_button_calculate)
+  - [di_init](di_init)
+  - [Colors](#colors)
+    - [di_color_rgb](#di_color_rgb)
+  - [Buttons](#buttons)
+    - [di_button](#di_button)
+    - [di_button_calculate](#di_button_calculate)
+    - [di_button_clicked](#di_button_clicked)
 
 # ToDo
 - Document all existing functions
@@ -90,7 +91,7 @@ Arguments:
 
 <b> Returns </b> ```[posx, posy, width, height]```
 
-```di_button_clicked``` - Determine if the specified button has been clicked.
+<a name='di_button_clicked'/> ```di_button_clicked``` - Determine if the specified button has been clicked.
 
 Arguments:
 | Required              | Description                                  |
