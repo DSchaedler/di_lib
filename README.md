@@ -7,10 +7,9 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
 - [di_lib](#di_lib)
 - [Contents](#contents)
 - [ToDo](#todo)
+- [Constants](#constants)
 - [Functions](#functions)
   - [di_init](di_init)
-  - [Colors](#colors)
-    - [di_color_rgb](#di_color_rgb)
   - [Buttons](#buttons)
     - [di_button](#di_button)
     - [di_button_calculate](#di_button_calculate)
@@ -22,6 +21,10 @@ To use this library, drop into ```mygame/lib/``` and add ```require "lib/di_lib.
 # ToDo
 - Document all existing functions
 - Text processing with scroll
+
+# Constants
+DI_COLORS - Hash of type ```{:colorname => [red, green, blue]}```. Frequently referenced throughout the rest of the Library. <br>
+ex: ```{:red => [255, 0, 0]}```
 
 # Functions
 
@@ -39,19 +42,6 @@ Arguments:
 | ```args.state.di_button_label```  | Hash containing all created button text labels.                  |
 | ```args.state.di_checkboxes```    | Hash containing all created checkboxes.                          |
 | ```args.state.di_textstreans```   | Hash containing all textstream arrays.                           |
-| ```args.state.di_colors```        | Array of all colors accepted by the ```di_color_rgb``` function. |
-
-## Colors
-<a name='di_color_rgb'/> ```di_color_rgb``` - returns an array with the RGB values of the color provided. Valid colors are listed in ```args.state.di_colors```. These are the same as the common HTML color codes listed here: https://htmlcolorcodes.com/. Used by almost every other function in the library.
-
-Arguments:
-| Required    | Descrpiption                       |
-| ----------- | ---------------------------------- |
-|```color:``` | String with the name of the color. |
-
-<b> Returns </b> ```[red_value, green_value, blue_value]```
-  
-```args.state.di_colors ||= ["black", "white", "red", "lime", "blue", "yellow", "cyan", "magenta", "silver", "grey", "maroon", "olive", "green", "purple", "teal", "navy"]```
 
 ## Buttons
 <a name='di_button'/> ```di_button``` - Specify and render a new button with a text label.
@@ -68,8 +58,8 @@ Arguments
 | Optional               | Description                                          | Default |
 | ---------------------- | ---------------------------------------------------- | ------- |
 | ```padding:```         | Space to pad text from the button border.            | 10      |
-| ```border_color:```    | Border color. Accepts strings for ```di_color_rgb``` | "black" |
-| ```text_color:```      | Text color. Accepts strings for ```di_color_rgb```   | "black" |
+| ```border_color:```    | Border color. Accepts symbols for ```DI_COLORS``` | "black" |
+| ```text_color:```      | Text color. Accepts symbols for ```DI_COLORS```   | "black" |
 | ```text_size:```       | Text size enumerator, [accepts integers between -10 to +10](https://dragonruby-docs.readthedocs.io/en/latest/02-labels/#font-size). | 0 |
 | ```text_allignment:``` | Text allignment, [accepts integers between 0 to 2](https://dragonruby-docs.readthedocs.io/en/latest/02-labels/#alignment).          | 0 |
 | ```text_alpha:```      | Text opacity, accepts integers between 0 to 255.     | 255     |
@@ -119,8 +109,8 @@ Arguments:
 | ------------------- | ---------------------------------------------------- | ------- |
 | ```width:```        | Checkbox width.                                      | 20      |
 | ```height:```       | Checkbox height.                                     | 20      |
-| ```border_color:``` | Border color. Accepts strings for ```di_color_rgb``` | "black" |
-| ```fill_color:```   | Fill color. Accepts strings for ```di_color_rgb```   | "black" |
+| ```border_color:``` | Border color. Accepts symbols for ```DI_COLORS``` | "black" |
+| ```fill_color:```   | Fill color. Accepts symbols for ```DI_COLORS```   | "black" |
 | ```border_alpha:``` | Border opacity, accepts integers between 0 to 255.   | 255     |
 | ```fill_alpha:```   | Fill opacity, accepts integers between 0 to 255.     | 255     |
 | ```state:```        | Check or Unchecked, accepts boolean values.          | false   |
