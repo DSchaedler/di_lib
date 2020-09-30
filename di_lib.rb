@@ -119,14 +119,14 @@ def di_render_textstream(args, textstream_symbol:, posx:, posy:, width:, height:
     textsize = args.gtk.calcstringbox(string)
     if order == "down"
       args.outputs.labels << [posx + line_spacing, posy + height - line_spacing, string]
-      posy = posy - textsize[1]
+      posy = posy - textsize[1] - line_spacing
     elsif order == "up"
       args.outputs.labels << [posx + line_spacing, posy + textsize[1] + line_spacing, string]
-      posy = posy + textsize[1]
+      posy = posy + textsize[1] - line_spacing
     else
-      #puts "[di_lib][Error:] Incorrect paramater passed for order, assuming down."
+      puts "[di_lib][Error:] Incorrect paramater passed for order, assuming down."
       args.outputs.labels << [posx + line_spacing, posy + height - line_spacing, string]
-      posy = posy - textsize[1]
+      posy = posy - textsize[1] - line_spacing
     end
   }
 end
