@@ -62,7 +62,7 @@ end
 def di_button(args, button_symbol:, string:, posx:, posy:, padding: 10, border_color: :black, text_color: :black, text_size: 0, text_allignment: 0, text_alpha: 255, font_file: "font.tff") #specify and render a new button
   #button_symbol - symbol, must be unique
 
-  string_box = args.gtk.calcstringbox(string, text_size + 1) #Adding one here is a hack to get the size right
+  string_box = args.gtk.calcstringbox(string, text_size)
 
   args.state.di_button_box[button_symbol] = [posx, posy, string_box[0] + (padding *2), string_box[1] + (padding * 2)] + DI_COLORS[border_color]
   args.state.di_button_label[button_symbol] = [posx + padding, posy + string_box[1] + padding, string, text_size, text_allignment] + DI_COLORS[text_color] + [text_alpha, font_file]
